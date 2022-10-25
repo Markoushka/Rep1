@@ -66,3 +66,4 @@ for day in range(366):
     if nick.alive == False:
         break
     nick.live(day)
+#2
