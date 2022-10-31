@@ -1,69 +1,28 @@
-import random
-
-
-class Student:
-    def __init__(self, name):
+class Human:
+    def __init__(self, name, ves):
         self.name = name
-        self.gladness = 50
-        self.progress = 0
-        self.money = 30
-        self.alive = True
+        self.ves = ves
 
-    def to_study(self):
-        print("Time to study!")
-        self.progress += 0.12
-        self.gladness -= 3
+    def showInfo(self):
+        print("Name:", self.name, "ves:", self.ves)
 
-    def to_sleep(self):
-        print("Time to sleep!")
-        self.gladness += 3
+class Brain(Human):
+    def __init__(self, name, ves):
+        super().__init__(name, ves)
 
-    def to_work(self):
-        print("job")
-        self.money += 40
-        self.gladness -= 5
+class Leg(Human):
+    def __init__(self, name, ves):
+        super().__init__( name, ves)
 
-    def to_chill(self):
-        print("Rest time!")
-        self.gladness += 5
-        self.progress -= 0.1
-        self.money -= 20
+class Heart(Human):
+    def __init__(self, name, ves):
+        super().__init__(name, ves)
 
-    def Ispravlenie(self):
-        if self.progress < -0.5:
-            print("Game over")
-            self.to_study()
-        elif self.gladness <= 0:
-            print("Ded inside")
-            self.to_chill()
-        elif self.money <= 5:
-            print("Bomj")
-            self.to_work()
+myBrain = Brain("Brain", 1)
+myBrain.showInfo()
 
-    def end_of_day(self):
-        print("Gladness:", self.gladness)
-        print("Progress:", self.progress)
-        print("Money:", self. money)
+myLeg = Leg("Leg", 5)
+myLeg.showInfo()
 
-    def live(self, day):
-        print("Day", str(day), "of", self.name, "live")
-        num = random.randint(1, 4)
-        if num == 1:
-            self.to_study()
-        elif num == 2:
-            self.to_chill()
-        elif num == 3:
-            self.to_sleep()
-        elif num == 4:
-            self.to_work()
-
-        self.end_of_day()
-        self.Ispravlenie()
-
-
-nick = Student("nick")
-for day in range(366):
-    if nick.alive == False:
-        break
-    nick.live(day)
-#2
+myHeart = Heart("Heart", 0.2)
+myHeart.showInfo()
